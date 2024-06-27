@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <title>CULTI-VISION</title>
+    <style>
+        h1 {
+            text-align: center;
+            font-size: 50px;
+            class:"solid";
+            
+        }
+ 
+        
+    </style>
+</head>
+<body>
+    <div class="top-bar">
+        
+        <h1 class="solid">
+            <i class="material-icons" style="font-size:60px;color:darkgreen;text-shadow:2px 2px 4px #000000;">cloud</i>
+            COMMUNITY FORUM
+        </h1>
+    </div>
+    <div class="main">
+        <ol>
+        </ol>
+    </div>
+    <script src="data.js"></script>
+    <script>
+        console.log(threads);
+        var container = document.querySelector('ol');
+        for (let thread of threads) {
+            var html = `
+            <li class="row">
+                <a href="/thread.html?${thread.id}">
+                    <h3 class="title">
+                        ${thread.title}
+                    </h3>
+                    <div class="bottom">
+                        <p class="timestamp">
+                            ${new Date(thread.date).toLocaleString()}
+                        </p>
+                        <p class="comment-count">
+                            ${thread.comments.length} comments
+                        </p>
+                    </div>
+                </a>
+            </li>
+            `
+            container.insertAdjacentHTML('beforeend', html);
+        }
+    </script>
+    <style>
+        div {
+  background-color: lightblue;
+}
+
+div.first {
+  opacity: 0.1;
+}
+
+div.second {
+  opacity: 0.3;
+}
+
+div.third {
+  opacity: 0.6;
+}
+        body {
+            margin: 20px 70px;
+            background-image: url("https://media.tehrantimes.com/d/t/2021/06/20/4/3808608.jpg");
+        }
+        a {
+            text-decoration: navy;
+            color: black;
+        }
+        h1, h4, ol {
+            margin: 0;
+        }
+        p {
+            margin: 5px 0;
+        }
+        .top-bar {
+            background-color: greenyellow;
+            padding: 0 40px;
+        }
+        .main {
+            background-color: bisque;
+            padding: 10px 15px;
+        }
+        .row {
+            padding: 5px 0;
+        }
+        .bottom {
+            display: flex;
+            color: black;
+            font-size: 12px;
+        }
+        .timestamp {
+            padding-right: 10px;
+        }
+    </style>
+</body>
+</html>
+<head>
+<style>
+
+</style>
+</head>
