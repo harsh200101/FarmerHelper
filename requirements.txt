@@ -76,6 +76,8 @@ seaborn==0.11.0
 Send2Trash==1.5.0
 simplejson==3.17.2
 six==1.15.0
+flask-cors
+
 sklearn==0.0
 terminado==0.9.1
 testpath==0.4.4
