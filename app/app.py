@@ -160,7 +160,30 @@ def support_a_farmer():
     title = 'Support a Farmer'
 
     return render_template('support.html',title=title)
+@app.route('/news')
+def news():
+    title = 'Welcome to the News page'
+    api_key = "bb69cf460c550afa0647823b69f2d0aa"  # Replace with your GNews API key
+    keyword = "weather"
+    country = "in"  # ISO code for India
+    url = f"https://gnews.io/api/v4/search?q={keyword}&country={country}&token={api_key}&lang=en"
+    
+    response = requests.get(url)
+    data = response.json()
+    articles = data['articles']
 
+    desc = []
+    news = []
+    img = []
+
+    for article in articles:
+        news.append(article['title'])
+        desc.append(article['description'])
+        img.append(article['image'])
+
+    mylist = zip(news, desc, img)
+
+    return render_template('news.html', context=mylist, title=title)
 # @app.route('/news')
 # def news():
 #     title = 'Welcome to the News page'
